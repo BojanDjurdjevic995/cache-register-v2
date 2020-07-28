@@ -1,0 +1,100 @@
+#products th
+{
+    cursor: pointer;
+}
+#products_length label,
+#products_filter label
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#products_wrapper
+{
+    width: 100%;
+}
+.tableUploadFIle
+{
+    position: absolute;
+    z-index: 9999;
+    width: 222px;
+    transform: translateX(-391px);
+    transition: 1s all ease;
+    top: 56px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active
+{
+    color: #0056b3 !important;
+    background-color: #e9ecef !important;
+    background: #e9ecef !important;
+    border-color: #dee2e6;
+    box-shadow: unset;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover
+{
+    z-index: 1;
+    color: #fff !important;
+    background: #007bff !important;
+    border-color: #007bff;
+    cursor: unset;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button
+{
+    color: #007bff !important;
+}
+.dataTables_wrapper .dataTables_paginate .ellipsis
+{
+    color: #0056b3 !important;
+    cursor: pointer;
+    border-color: #dee2e6;
+    padding: 0.5em 1em;
+}
+#delstatus
+{
+    display: none;
+}
+.choosen-images
+{
+    display: none;
+}
+.edit
+{
+    display: block !important;
+}
+.alertStatus
+{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+#alertForSuccess
+{
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    transition: 1s all ease;
+    transform: translateX(-360px);
+}
+.buttonAction
+{
+    display: flex;
+    align-items: center;
+}
+.productImage
+{
+    width: 100px;
+}
+.loginPageContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.loginPageContainer .card
+{
+    background: #AAA;
+}
+.buttonPadding{padding: 0px 7px !important}
