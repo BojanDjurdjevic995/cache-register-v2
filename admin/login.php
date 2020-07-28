@@ -16,6 +16,7 @@ if (request()->isMethod('POST')) {
             session('userId', $user->id);
             session(0,0,'email_val');
             session(0,0,'error');
+            redirect('admin/index');
         }
         else
             session('error', 'These credentials do not match our records.');

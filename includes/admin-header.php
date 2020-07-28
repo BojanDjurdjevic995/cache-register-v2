@@ -57,4 +57,4 @@ if (session('error')) {
         </ul>
     </div>
 </nav>
-<div class="container <?= $page == 'login.php' ? 'loginPageContainer' : '' ?>">
+<div class="container <?= $page == 'login' ? 'loginPageContainer' : '' ?>">
