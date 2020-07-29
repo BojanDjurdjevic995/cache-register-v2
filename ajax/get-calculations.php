@@ -41,8 +41,7 @@ if (request()->isAjax() && (request()->_token === csrf_token()))
             $nestedData['object']   = $item->object;
             $nestedData['date']     = $item->date;
             $nestedData['document'] = $item->document;
-            $nestedData['items']    = '<a class="btn btn-primary buttonPadding" href="'.asset('admin/calc-items.php?id=' . $item->id).'">Items</a>
-                                        <a class="btn btn-primary buttonPadding" href="'.asset('admin/add-calc-items.php?id=' . $item->id).'">Add</a>';
+            $nestedData['items']    = '<a class="btn btn-primary buttonPadding" href="'.asset('admin/calc-items.php?id=' . $item->id).'">Items</a>';
 
             $data[] = $nestedData;
         }

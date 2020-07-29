@@ -4,7 +4,29 @@ $(document).ready(function () {
     {
         calculationTable('calculation');
     }
+    if (page == 'add-calc')
+    {
+        getCalcDetails();
+    }
+
 });
+function getCalcDetails()
+{
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var num = $('.numOfAppend').last().data('num') !== undefined ? ($('.numOfAppend').last().data('num') + 1) : 1;
+    console.log($('.numOfAppend').last().data('num'))
+    $.ajax({
+        cache       : false,
+        method      : 'POST',
+        url         : '../ajax/get-calc-details.php',
+        dataType    : 'JSON',
+        data        : {_token : token, num : num},
+        success: function(response)
+        {
+            $('#appednDetails').append(response)
+        }
+    });
+}
 function calculationTable(table)
 {
     $('#'+table+'').DataTable({
