@@ -1,15 +1,15 @@
 <?php
     return [
-        'default' => env('DB_CONNECTION', 'mysql'),
+        'default' => env('DB_CONNECTION', 'postgres'),
         'connections' => [
-            'mysql' => [
-                'driver'            => 'mysql',
+            'postgres' => [
+                'driver'            => 'postgres',
                 'url'               => '',
-                'host'              => '127.0.0.1',
-                'port'              => '3306',
-                'database'          => 'cash_register-v2',
-                'username'          => 'root',
-                'password'          => '',
+                'host'              => 'cache_register_postgres',
+                'port'              => '5439',
+                'database'          => 'cache_register',
+                'username'          => 'cache_register',
+                'password'          => 'cache_register',
                 'unix_socket'       => '',
                 'charset'           => 'utf8mb4',
                 'collation'         => 'utf8mb4_unicode_ci',

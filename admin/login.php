@@ -11,6 +11,7 @@ if (request()->isMethod('POST')) {
     $password   = strip_tags($request->password);
     session('email_val', $email);
     $user = User::where('email', $email)->first();
+
     if (!empty($user)) {
         if (password_verify($request->password, $user->password)) {
             session('userId', $user->id);

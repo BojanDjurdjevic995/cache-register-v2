@@ -2,12 +2,13 @@
 namespace App\Traits;
 
 use PDO;
-use Illuminate\Database\MySqlConnection;
+use Illuminate\Database\PostgresConnection;
 
 trait ConnectionHelper
 {
-    public function getConnection($connection = 'mysql', $pdoReturn = false)
+    public function getConnection($connection = 'postgres', $pdoReturn = false)
     {
+        
         $connection = isset($this->conn) ? $this->conn : $connection;
         $DB      = include ROOT_PATH . 'config/database.php';
         $DB      = $DB['connections'][$connection];
@@ -15,9 +16,9 @@ trait ConnectionHelper
         $user    = $DB['username'];
         $pass    = $DB['password'];
         $charset = $DB['charset'];
-
-        $pdo = new PDO('mysql:host=localhost;dbname='.$db.';charset=' . $charset, $user, $pass);
-        $conn = new MySqlConnection($pdo, env('DB_DATABASE'), '', $DB);
+       
+        $pdo = new PDO('pgsql:host=localhost;port=5439;dbname='.$db, $user, $pass);
+        $conn = new PostgresConnection($pdo, env('DB_DATABASE'), '', $DB);
         if ($pdoReturn)
             return $pdo;
         return $conn;
