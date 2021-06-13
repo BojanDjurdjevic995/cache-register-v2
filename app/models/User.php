@@ -10,4 +10,5 @@ class User extends Model
 {
     use ConnectionHelper;
     protected $table = 'users';
+    protected $keyType = 'uuid';
 }

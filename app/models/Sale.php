@@ -10,4 +10,5 @@ class Sale  extends Model
 {
     use ConnectionHelper;
     protected $table = 'sales';
+    protected $keyType = 'uuid';
 }

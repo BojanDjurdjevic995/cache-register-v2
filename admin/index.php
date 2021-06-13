@@ -1,6 +1,6 @@
 <?php
 require_once '../config/config.php';
-dd(!session('userId'));
+
 if (!session('userId'))
     redirect('admin/login');
 

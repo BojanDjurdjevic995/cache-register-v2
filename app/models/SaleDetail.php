@@ -10,4 +10,5 @@ class SaleDetail extends Model
 {
     use ConnectionHelper;
     protected $table = 'sale_details';
+    protected $keyType = 'uuid';
 }

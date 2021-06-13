@@ -11,6 +11,7 @@ class Calculation extends Model
 {
     use ConnectionHelper;
     protected $table = 'calculation';
+    protected $keyType = 'uuid';
 
     public function children()
     {

@@ -10,4 +10,5 @@ class CalculationDetail extends Model
 {
     use ConnectionHelper;
     protected $table = 'calculation_details';
+    protected $keyType = 'uuid';
 }
