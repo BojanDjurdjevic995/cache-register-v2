@@ -1,9 +1,10 @@
 <?php
     use App\Models\User;
 
+    $user = User::whereId(session('userId'))->first();
     $page = explode('/', $_SERVER['SCRIPT_NAME']);
     $page = explode('.', end($page))[0];
-    $username = (session('userId')) ? User::whereId(session('userId'))->first()->name : '';
+    $username = $user->name ?? '';
 ?>
 <html>
 <head>
@@ -36,6 +37,7 @@ if (session('error')) {
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <?php if ($user) { ?>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown <?= in_array($page, ['add-calc', 'index']) ? 'active' : '' ?>">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Calculation</a>
@@ -44,7 +46,15 @@ if (session('error')) {
                     <a class="dropdown-item <?= $page == 'index' ? 'active' : '' ?>" href="<?= asset('admin') ?>">Show</a>
                 </div>
             </li>
+            <li class="nav-item dropdown <?= in_array($page, ['add-sale', 'sale']) ? 'active' : '' ?>">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sale</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item <?= $page == 'add-sale' ? 'active' : '' ?>" href="<?= asset('admin/add-sale.php') ?>">Add</a>
+                    <a class="dropdown-item <?= $page == 'sale' ? 'active' : '' ?>" href="<?= asset('admin/sale.php') ?>">Show</a>
+                </div>
+            </li>
         </ul>
+        <?php } ?>
 
         <ul class="navbar-nav ml-auto mr-5">
             <?php if (session('userId')) { ?>

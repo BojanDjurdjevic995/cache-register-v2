@@ -59,7 +59,7 @@ __include('admin-header', ['title' => 'Add Calculation']);
         </div>
         <h3 class="text-center">Details</h3>
         <div id="appednDetails"></div>
-        <a class="btn btn-success float-right" style="cursor: pointer" onclick="getCalcDetails()">Add more</a>
+        <a class="btn btn-success float-right" style="cursor: pointer" onclick="getDetails('calc')">Add more</a>
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 <?php __include('admin-footer'); ?>

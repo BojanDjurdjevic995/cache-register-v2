@@ -3,9 +3,11 @@ require_once '../config/config.php';
 use App\Controllers\Request;
 use App\Models\User;
 
+
 if (session('userId') !== null)
     redirect('admin/index');
 __include('admin-header', ['title' => 'Login', 'page' => 'login']);
+
 if (request()->isMethod('POST')) {
     $request    = new Request();
     $email      = strip_tags($request->email);

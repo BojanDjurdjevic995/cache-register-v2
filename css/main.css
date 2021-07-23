@@ -82,6 +82,9 @@
     display: flex;
     align-items: center;
 }
+.cursorPointer{
+    cursor: pointer;
+}
 .productImage
 {
     width: 100px;
