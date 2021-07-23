@@ -2,7 +2,8 @@
 require_once '../config/config.php';
 use App\Controllers\Request;
 use App\Models\User;
-if (session('userId'))
+
+if (session('userId') !== null)
     redirect('admin/index');
 __include('admin-header', ['title' => 'Login', 'page' => 'login']);
 if (request()->isMethod('POST')) {

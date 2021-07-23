@@ -1,5 +1,6 @@
 <?php
     use App\Models\User;
+
     $page = explode('/', $_SERVER['SCRIPT_NAME']);
     $page = explode('.', end($page))[0];
     $username = (session('userId')) ? User::whereId(session('userId'))->first()->name : '';

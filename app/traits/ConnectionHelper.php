@@ -8,20 +8,24 @@ trait ConnectionHelper
 {
     public function getConnection($connection = 'postgres', $pdoReturn = false)
     {
-        
-        $connection = isset($this->conn) ? $this->conn : $connection;
-        $DB      = include ROOT_PATH . 'config/database.php';
-        $DB      = $DB['connections'][$connection];
-        $db      = $DB['database'];
-        $user    = $DB['username'];
-        $pass    = $DB['password'];
-        $charset = $DB['charset'];
-       
-        $pdo = new PDO('pgsql:host=localhost;port=5439;dbname='.$db, $user, $pass);
-        $conn = new PostgresConnection($pdo, env('DB_DATABASE'), '', $DB);
-        if ($pdoReturn)
-            return $pdo;
-        return $conn;
+        try {
+            $connection = isset($this->conn) ? $this->conn : $connection;
+            $DB      = include ROOT_PATH . 'config/database.php';
+            $DB      = $DB['connections'][$connection];
+            $db      = $DB['database'];
+            $user    = $DB['username'];
+            $pass    = $DB['password'];
+            $charset = $DB['charset'];
+            $host    = $DB['host'];
+            $port    = $DB['port'];
+            $pdo = new PDO('pgsql:host='.$host.';port='.$port.';dbname='.$db, $user, $pass);
+            $conn = new PostgresConnection($pdo, env('DB_DATABASE'), '', $DB);
+            if ($pdoReturn)
+                return $pdo;
+            return $conn;
+        } catch (Exception $e) {
+            dd($e->getMessage());
+        }
     }
 
     public static function getColumnName()

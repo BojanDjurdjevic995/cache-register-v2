@@ -5,7 +5,7 @@
             'postgres' => [
                 'driver'            => 'postgres',
                 'url'               => '',
-                'host'              => 'cache_register_postgres',
+                'host'              => 'cacheRegisterPostgres',
                 'port'              => '5439',
                 'database'          => 'cache_register',
                 'username'          => 'cache_register',
