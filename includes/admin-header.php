@@ -31,7 +31,7 @@ if (session('error')) {
 }
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand ml-5" href="<?= asset('admin'); ?>">Dashboard</a>
+    <a class="navbar-brand ml-5" href="<?= asset('admin'); ?>">Admin panel</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -40,18 +40,21 @@ if (session('error')) {
         <?php if ($user) { ?>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown <?= in_array($page, ['add-calc', 'index']) ? 'active' : '' ?>">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Calculation</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Kalkulacija</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item <?= $page == 'add-calc' ? 'active' : '' ?>" href="<?= asset('admin/add-calc.php') ?>">Add</a>
-                    <a class="dropdown-item <?= $page == 'index' ? 'active' : '' ?>" href="<?= asset('admin') ?>">Show</a>
+                    <a class="dropdown-item <?= $page == 'add-calc' ? 'active' : '' ?>" href="<?= asset('admin/add-calc.php') ?>">Dodaj</a>
+                    <a class="dropdown-item <?= $page == 'index' ? 'active' : '' ?>" href="<?= asset('admin') ?>">Prikaži sve</a>
                 </div>
             </li>
             <li class="nav-item dropdown <?= in_array($page, ['add-sale', 'sale']) ? 'active' : '' ?>">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sale</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Zbirna faktura</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item <?= $page == 'add-sale' ? 'active' : '' ?>" href="<?= asset('admin/add-sale.php') ?>">Add</a>
-                    <a class="dropdown-item <?= $page == 'sale' ? 'active' : '' ?>" href="<?= asset('admin/sale.php') ?>">Show</a>
+                    <a class="dropdown-item <?= $page == 'add-sale' ? 'active' : '' ?>" href="<?= asset('admin/add-sale.php') ?>">Dodaj</a>
+                    <a class="dropdown-item <?= $page == 'sale' ? 'active' : '' ?>" href="<?= asset('admin/sale.php') ?>">Prikaži sve</a>
                 </div>
+            </li>
+            <li class="nav-item dropdown <?= in_array($page, ['lager']) ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= asset('admin/lager.php') ?>">Lager</a>
             </li>
         </ul>
         <?php } ?>

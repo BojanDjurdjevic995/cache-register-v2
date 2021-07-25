@@ -26,9 +26,6 @@ $subFields = [
     ['name' => 'Cijena', 'type' => 'number', 'inputName' => 'price'],
     ['name' => 'Akciza', 'type' => 'number', 'inputName' => 'excise'], 
     ['name' => 'Rabat %', 'type' => 'number', 'inputName' => 'discount'],
-    ['name' => 'Vrijednost', 'type' => 'number', 'inputName' => 'value'], 
-    ['name' => 'PDV', 'type' => 'number', 'inputName' => 'pdv'],
-    ['name' => 'Ukupno', 'type' => 'number', 'inputName' => 'total']
 ];
 if (request()->isMethod('POST'))
 {
@@ -43,7 +40,10 @@ if (request()->isMethod('POST'))
         $details = new SaleDetail();
         $details->sale_id = $sale->id;
         foreach ($subFields as $items)
-            $details->{str_replace('details_', '', $items['inputName'])} = $r->{$items['inputName']}[$i];
+            $details->{$items['inputName']} = $r->{$items['inputName']}[$i];
+        $details->value = $details->price * $details->quantity;
+        $details->pdv   = ($details->value * 17) / 100;
+        $details->total = $details->price * $details->quantity;
         $details->save();
     }
     redirect('admin/sale');

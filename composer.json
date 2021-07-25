@@ -18,7 +18,8 @@
     "illuminate/database": "5.8.*",
     "phpoption/phpoption": "^1.7@dev",
     "vlucas/phpdotenv": "3.6.*",
-    "setasign/fpdf": "^1.8"
+    "setasign/fpdf": "^1.8",
+    "ext-iconv": "*"
   },
   "autoload": {
     "psr-4": {

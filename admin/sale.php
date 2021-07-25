@@ -15,6 +15,7 @@ __include('admin-header', ['title' => 'Sale']);
             <th>JIB</th>
             <th>Invoice</th>
             <th>Delivery place</th>
+            <th>Items</th>
         </tr>
         </thead>
     </table>

@@ -89,6 +89,7 @@ function saleTable(table) {
             { "data": "customer_jib" },
             { "data": "invoice" },
             { "data": "delivery_place" },
+            { "data": "items" },
         ]
     })
 }

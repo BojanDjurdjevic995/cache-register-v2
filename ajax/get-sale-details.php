@@ -4,15 +4,12 @@ if (request()->isAjax() && request()->_token == csrf_token())
 {
     $mainFields = [
         ['name' => 'Šifra', 'type' => 'text', 'inputName' => 'code'],
-        ['name' => 'Naziv artikla', 'type' => 'text', 'inputName' => 'article_name'], 
+        ['name' => 'Naziv artikla', 'type' => 'text', 'inputName' => 'article_name'],
         ['name' => 'JM', 'type' => 'text', 'inputName' => 'unit_of_measure'],
-        ['name' => 'Količina', 'type' => 'number', 'inputName' => 'quantity'], 
+        ['name' => 'Količina', 'type' => 'number', 'inputName' => 'quantity'],
         ['name' => 'Cijena', 'type' => 'number', 'inputName' => 'price'],
-        ['name' => 'Akciza', 'type' => 'number', 'inputName' => 'excise'], 
+        ['name' => 'Akciza', 'type' => 'number', 'inputName' => 'excise'],
         ['name' => 'Rabat %', 'type' => 'number', 'inputName' => 'discount'],
-        ['name' => 'Vrijednost', 'type' => 'number', 'inputName' => 'value'], 
-        ['name' => 'PDV', 'type' => 'number', 'inputName' => 'pdv'],
-        ['name' => 'Ukupno', 'type' => 'number', 'inputName' => 'total']
     ];
     $return = '<h4 class="numOfAppend" data-num="'.request()->num.'">#'.request()->num.'</h4><div class="row">';
     foreach ($mainFields as $key => $field) {
