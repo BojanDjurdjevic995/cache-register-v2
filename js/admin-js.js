@@ -13,6 +13,17 @@ $(document).ready(function () {
             break;
     }
 
+    if ($('#alertForSuccess').length) {
+        $('#alertForSuccess').css('transform', 'translateX(60px)');
+
+        setTimeout(function () {
+            $('#alertForSuccess').css('transform', 'translateX(-360px)');
+        }, 4000);
+
+        setTimeout(function () {
+            $('#alertForSuccess').remove();
+        }, 8000);
+    }
 });
 function getDetails(file) {
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -60,7 +71,6 @@ function calculationTable(table) {
         ]
     })
 }
-
 function saleTable(table) {
     $('#' + table + '').DataTable({
         "processing": false,
