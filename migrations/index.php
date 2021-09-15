@@ -8,7 +8,12 @@ $calculation = require_once('./calculation.migration.php');
 startMigration($calculation);
 $ids = $conn->select('SELECT id FROM calculation');
 
-$migrations_files = ['users', 'sales', 'sale-details', 'calculation-details'];
+$sales = require_once('./sales.migration.php');
+startMigration($sales);
+$saleID = $conn->select('SELECT id FROM sales')[0]['id'];
+
+$migrations_files = ['users', 'sales-details', 'calculation-details'];
+
 foreach($migrations_files as $migration) {
   $file = require_once('./' . $migration . '.migration.php');
   startMigration($file);

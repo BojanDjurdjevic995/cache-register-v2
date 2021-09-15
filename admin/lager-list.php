@@ -56,20 +56,18 @@ $headers = [
 $pdf->tableRow($headers);
 
 foreach ($calculationDetails as $key => $value) {
-    if ($value->quantity > $value->saleDetails->quantity) {
 
-        $quantity = $value->quantity - $value->saleDetails->quantity;
-        $rows = [
-            ['name' => $value->code,              'width' => $headers[0]['width'], 'border' => 'B'],
-            ['name' => $value->article_name,      'width' => $headers[1]['width'], 'border' => 'B'],
-            ['name' => $value->unit_of_measure,   'width' => $headers[2]['width'], 'border' => 'B'],
-            ['name' => $value->price,             'width' => $headers[3]['width'], 'border' => 'B'],
-            ['name' => $quantity,                 'width' => $headers[4]['width'], 'border' => 'B'],
-            ['name' => $quantity * $value->price, 'width' => $headers[5]['width'], 'border' => 'B'],
-        ];
+    $quantity = $value->saleDetails ? ($value->quantity - $value->saleDetails->quantity) : $value->quantity;
+    $rows = [
+        ['name' => $value->code,              'width' => $headers[0]['width'], 'border' => 'B'],
+        ['name' => $value->article_name,      'width' => $headers[1]['width'], 'border' => 'B'],
+        ['name' => $value->unit_of_measure,   'width' => $headers[2]['width'], 'border' => 'B'],
+        ['name' => $value->price,             'width' => $headers[3]['width'], 'border' => 'B'],
+        ['name' => $quantity,                 'width' => $headers[4]['width'], 'border' => 'B'],
+        ['name' => $quantity * $value->price, 'width' => $headers[5]['width'], 'border' => 'B'],
+    ];
 
-        $pdf->tableRow($rows);
-    }
+    $pdf->tableRow($rows);
 }
 
 $pdf->Output('', '', true);

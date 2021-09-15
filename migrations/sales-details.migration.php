@@ -17,7 +17,9 @@ $create = 'CREATE TABLE IF NOT EXISTS sale_details (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP, 
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP );';
 
-$insert = 'SELECT * FROM sale_details';
+$insert = 'INSERT INTO sale_details (sale_id, code, article_name, unit_of_measure, quantity, price, excise, discount, value, pdv, total) VALUES
+(\''.$saleID.'\', \'0531705\', \'Richard\', \'KOM\', 5, 2.5, 0, 0, 12.5, 2.125, 12.5),
+(\''.$saleID.'\', \'0236985\', \'Chips\', \'KOM\', 4, 2, 0, 0, 8, 1.36, 8)';
 
 return [
     'drop' => $drop,

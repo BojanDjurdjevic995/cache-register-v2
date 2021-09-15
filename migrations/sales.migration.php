@@ -17,7 +17,8 @@ $create = 'CREATE TABLE IF NOT EXISTS sales (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP, 
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP );';
 
-$insert = 'SELECT * FROM sales';
+$insert = 'INSERT INTO sales (customer, customer_pib, customer_jib, web_address, email, invoice, dpo, currency, delivery_place) VALUES
+(\'Kupac Bojan\', 235893, 748963, \'http://www.google.ba\', \'djurdjevicbojan12@gmail.com\', \'2/257\', \'DPO Neki\', \'BAM\', \'Prnjavor\')';
 
 return [
     'drop' => $drop,
