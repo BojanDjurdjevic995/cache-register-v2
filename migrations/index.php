@@ -3,7 +3,6 @@ require_once '../config/config.php';
 use App\Models\DB;
 
 $conn = new DB();
-
 $calculation = require_once('./calculation.migration.php');
 startMigration($calculation);
 $ids = $conn->select('SELECT id FROM calculation');
