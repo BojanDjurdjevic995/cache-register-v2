@@ -49,10 +49,10 @@ if (request()->isMethod('POST'))
     redirect('admin/sale');
 }
 
-__include('admin-header', ['title' => 'Add Sale']);
+__include('admin-header', ['title' => 'Dodavanje prodaje']);
 ?>
     <form method="post" action="">
-        <h3 class="text-center">Sale</h3>
+        <h3 class="text-center">Prodaja</h3>
         <div class="row">
             <?php foreach ($mainFields as $key => $field) { ?>
                 <div class="form-group">
@@ -61,9 +61,9 @@ __include('admin-header', ['title' => 'Add Sale']);
                 </div>
             <?php } ?>
         </div>
-        <h3 class="text-center">Sale Details</h3>
+        <h3 class="text-center">Detalji prodaje</h3>
         <div id="appednDetails"></div>
-        <a class="btn btn-success float-right" style="cursor: pointer" onclick="getDetails('sale')">Add more</a>
-        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-success float-right" style="cursor: pointer" onclick="getDetails('sale')">Dodaj još</a>
+        <button type="submit" class="btn btn-primary">Sačuvaj</button>
     </form>
 <?php __include('admin-footer'); ?>

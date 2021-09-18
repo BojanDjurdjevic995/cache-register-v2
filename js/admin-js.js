@@ -3,15 +3,19 @@ $(document).ready(function () {
     switch (page) {
         case 'index': calculationTable('calculation');
             break;
-
         case 'add-calc': getDetails('calc');
             break;
-
         case 'sale': saleTable('sale');
             break;
         case 'add-sale': getDetails('sale');
             break;
     }
+
+    $('#lagerListForm').on('submit', function() {
+        setTimeout(() => {
+            $('#lagerListForm')[0].reset();
+        }, 500);
+    })
 
     if ($('#alertForSuccess').length) {
         $('#alertForSuccess').css('transform', 'translateX(60px)');
@@ -47,8 +51,8 @@ function calculationTable(table) {
         "autoWidth": false,
         language: {
             paginate: {
-                next: '<a class="page-link">Next</a>',
-                previous: '<a class="page-link"  tabindex="-1">Previous</a>',
+                next: '<a class="page-link">Slijedeća</a>',
+                previous: '<a class="page-link"  tabindex="-1">Prethodna</a>',
             }
         },
         'ajax': {
@@ -67,7 +71,7 @@ function calculationTable(table) {
             { "data": "object" },
             { "data": "date" },
             { "data": "document" },
-            { "data": "items" },
+            { "data": "items", "orderable": false },
         ]
     })
 }
@@ -78,8 +82,8 @@ function saleTable(table) {
         "autoWidth": false,
         language: {
             paginate: {
-                next: '<a class="page-link">Next</a>',
-                previous: '<a class="page-link"  tabindex="-1">Previous</a>',
+                next: '<a class="page-link">Slijedeća</a>',
+                previous: '<a class="page-link"  tabindex="-1">Prethodna</a>',
             }
         },
         'ajax': {
@@ -99,7 +103,7 @@ function saleTable(table) {
             { "data": "customer_jib" },
             { "data": "invoice" },
             { "data": "delivery_place" },
-            { "data": "items" },
+            { "data": "items", "orderable": false  },
         ]
     })
 }
@@ -110,7 +114,16 @@ function styleDatatables(table) {
     $('select[name="' + table + '_length"]').addClass('form-control').css({ 'margin-left': '10px', 'margin-right': '10px' });
     $('#' + table + '_info').addClass('alert alert-primary');
     $('#' + table + '_length label').addClass('d-flex align-items-center');
+    $('#' + table + '_length label').contents().first().replaceWith('Prikaži');
+    $('#' + table + '_length label').contents().last().replaceWith('unosa');
     $('#' + table + '_filter label').css('font-weight', '700').addClass('d-flex align-items-center');
-    $('#' + table + '_filter label input').attr('Placeholder', 'Enter something...').addClass('form-control');
+    $('#' + table + '_filter label').contents().first().replaceWith('Pretraži');
+    $('#' + table + '_filter label input').attr('Placeholder', 'Unesite nešto...').addClass('form-control');
 
+    let infoText = $('#' + table + '_info').text();
+    infoText = infoText.replace('Showing', 'Prikaz');
+    infoText = infoText.replace('to', 'do');
+    infoText = infoText.replace('of', 'od');
+    infoText = infoText.replace('entries', 'unosa');
+    $('#' + table + '_info').text(infoText);
 }

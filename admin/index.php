@@ -10,11 +10,11 @@ __include('admin-header', ['title' => 'Home']);
         <thead>
         <tr>
             <th>#</th>
-            <th>Name</th>
-            <th>Object</th>
-            <th>Date</th>
-            <th>Document</th>
-            <th>Action</th>
+            <th>Naziv</th>
+            <th>Objekat</th>
+            <th>Datum</th>
+            <th>Dokument</th>
+            <th>Akcija</th>
         </tr>
         </thead>
     </table>

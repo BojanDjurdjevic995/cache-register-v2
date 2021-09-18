@@ -48,7 +48,7 @@ if (request()->isAjax() && (request()->_token === csrf_token()))
             $nestedData['customer_jib']   = $item->customer_jib;
             $nestedData['invoice']        = $item->invoice;
             $nestedData['delivery_place'] = $item->delivery_place;
-            $nestedData['items']          = '<a class="btn btn-primary buttonPadding" target="_blank" href="'.asset('admin/sale-items.php?id=' . $item->id).'">Items</a>';;
+            $nestedData['items']          = '<a class="btn btn-primary buttonPadding" target="_blank" href="'.asset('admin/sale-items.php?id=' . $item->id).'">PDF</a>';
 
             $data[] = $nestedData;
         }

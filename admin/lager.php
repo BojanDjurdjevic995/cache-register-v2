@@ -10,15 +10,14 @@ $calculations = Calculation::select('id', 'name')->get();
 __include('admin-header', ['title' => 'Lager']);
 
 ?>
-<div class="alert alert-success">Lager lista</div>
-<form action="./lager-list.php">
+<form action="./lager-list.php" id="lagerListForm" class="mt-5" target="_blank">
     <select class="form-control" name="company" id="" style="width: 30%;">
         <option value="">Za objekat</option>
         <?php foreach ($calculations as $calculation) { ?>
             <option value="<?= $calculation->id ?>"><?= $calculation->name ?></option>
         <?php } ?>
     </select>
-    <label>Izaberite period</label>
+    <label class="mt-5">Izaberite period</label>
     <div class="input-group mb-3">
         <div class="form-group mr-2">
             <label>Od</label>
